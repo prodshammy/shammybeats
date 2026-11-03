@@ -16,6 +16,7 @@
     "gilead",
     "hallelujah",
     "judgment",
+    "manna",
     "miriam",
     "onesimus",
     "paul",
@@ -50,6 +51,7 @@
     "GILEAD",
     "HALLELUJAH",
     "JUDGMENT",
+    "MANNA",
     "MIRIAM",
     "ONESIMUS",
     "PAUL",
@@ -70,17 +72,20 @@
     "maine"
   ],
   "path_substrings": [
-    "maine",
+    "EARTHQUAKE",
+    "MANNA",
     "SOLOMON",
-    "solomon",
     "earthquake",
-    "EARTHQUAKE"
+    "maine",
+    "manna",
+    "solomon"
   ],
   "notes": {
     "maine": "Skip any beat whose path/folder/name contains 'maine' (placements).",
     "solomon": "Removed from store previously; Stripe payment link deactivated.",
     "earthquake": "Removed 2026-11-03 per Gray; keep assets/audio/earthquake.mp3 and cover; deactivate Stripe payment link(s).",
-    "under_60s": "Never list beats with ffprobe duration < 60s. Unlisted 2026-11-03."
+    "under_60s": "Never list beats with ffprobe duration < 60s. Unlisted 2026-11-03.",
+    "manna": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe payment link(s); never re-add in batches."
   },
   "min_duration_seconds": 60,
   "under_60s_removed": [

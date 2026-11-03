@@ -1626,21 +1626,6 @@
       "hidden": false
     },
     {
-      "id": "manna",
-      "title": "MANNA",
-      "bpm": 144,
-      "key": "A#min",
-      "sampled": false,
-      "exclusivePrice": 100,
-      "cover": "assets/covers/manna.jpg",
-      "audio": "assets/audio/manna.mp3",
-      "stripePaymentLink": "https://buy.stripe.com/3cIeVd0xAe5Z8Jx7yZbwk21",
-      "price": 100,
-      "mood": "",
-      "youtubeUrl": "",
-      "hidden": false
-    },
-    {
       "id": "philistine",
       "title": "PHILISTINE",
       "bpm": 115,
