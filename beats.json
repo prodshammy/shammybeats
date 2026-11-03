@@ -3006,21 +3006,6 @@
       "hidden": false
     },
     {
-      "id": "john",
-      "title": "JOHN",
-      "bpm": 144,
-      "key": "F#min",
-      "sampled": false,
-      "exclusivePrice": 100,
-      "cover": "assets/covers/john.jpg",
-      "audio": "assets/audio/john.mp3",
-      "stripePaymentLink": "https://buy.stripe.com/cNieVd0xAfa34th4mNbwk3Q",
-      "price": 100,
-      "mood": "",
-      "youtubeUrl": "",
-      "hidden": false
-    },
-    {
       "id": "oil",
       "title": "OIL",
       "bpm": 152,

@@ -16,6 +16,7 @@
     "gallows",
     "gilead",
     "hallelujah",
+    "john",
     "judgment",
     "manna",
     "miriam",
@@ -54,6 +55,7 @@
     "GALLOWS",
     "GILEAD",
     "HALLELUJAH",
+    "JOHN",
     "JUDGMENT",
     "MANNA",
     "MIRIAM",
@@ -80,12 +82,14 @@
   "path_substrings": [
     "EARTHQUAKE",
     "GALLOWS",
+    "JOHN",
     "MANNA",
     "PASSOVER",
     "RACHEL",
     "SOLOMON",
     "earthquake",
     "gallows",
+    "john",
     "maine",
     "manna",
     "passover",
@@ -100,7 +104,8 @@
     "manna": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe payment link(s); never re-add in batches.",
     "gallows": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
     "passover": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
-    "rachel": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
+    "rachel": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
+    "john": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
   },
   "min_duration_seconds": 60,
   "under_60s_removed": [
