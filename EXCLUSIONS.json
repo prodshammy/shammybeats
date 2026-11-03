@@ -20,6 +20,7 @@
     "manna",
     "miriam",
     "onesimus",
+    "passover",
     "paul",
     "peace",
     "promise",
@@ -56,6 +57,7 @@
     "MANNA",
     "MIRIAM",
     "ONESIMUS",
+    "PASSOVER",
     "PAUL",
     "PEACE",
     "PROMISE",
@@ -77,11 +79,13 @@
     "EARTHQUAKE",
     "GALLOWS",
     "MANNA",
+    "PASSOVER",
     "SOLOMON",
     "earthquake",
     "gallows",
     "maine",
     "manna",
+    "passover",
     "solomon"
   ],
   "notes": {
@@ -90,7 +94,8 @@
     "earthquake": "Removed 2026-11-03 per Gray; keep assets/audio/earthquake.mp3 and cover; deactivate Stripe payment link(s).",
     "under_60s": "Never list beats with ffprobe duration < 60s. Unlisted 2026-11-03.",
     "manna": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe payment link(s); never re-add in batches.",
-    "gallows": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
+    "gallows": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
+    "passover": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
   },
   "min_duration_seconds": 60,
   "under_60s_removed": [
