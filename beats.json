@@ -3066,21 +3066,6 @@
       "hidden": false
     },
     {
-      "id": "rachel",
-      "title": "RACHEL",
-      "bpm": 112,
-      "key": "G#min",
-      "sampled": false,
-      "exclusivePrice": 100,
-      "cover": "assets/covers/rachel.jpg",
-      "audio": "assets/audio/rachel.mp3",
-      "stripePaymentLink": "https://buy.stripe.com/dRm3cvdkm5zt7Ftg5vbwk3W",
-      "price": 100,
-      "mood": "",
-      "youtubeUrl": "",
-      "hidden": false
-    },
-    {
       "id": "samaria",
       "title": "SAMARIA",
       "bpm": 103,

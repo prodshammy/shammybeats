@@ -24,6 +24,7 @@
     "paul",
     "peace",
     "promise",
+    "rachel",
     "rebellion",
     "salvation",
     "scorpion",
@@ -61,6 +62,7 @@
     "PAUL",
     "PEACE",
     "PROMISE",
+    "RACHEL",
     "REBELLION",
     "SALVATION",
     "SCORPION",
@@ -80,12 +82,14 @@
     "GALLOWS",
     "MANNA",
     "PASSOVER",
+    "RACHEL",
     "SOLOMON",
     "earthquake",
     "gallows",
     "maine",
     "manna",
     "passover",
+    "rachel",
     "solomon"
   ],
   "notes": {
@@ -95,7 +99,8 @@
     "under_60s": "Never list beats with ffprobe duration < 60s. Unlisted 2026-11-03.",
     "manna": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe payment link(s); never re-add in batches.",
     "gallows": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
-    "passover": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
+    "passover": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
+    "rachel": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
   },
   "min_duration_seconds": 60,
   "under_60s_removed": [
