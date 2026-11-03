@@ -50,3 +50,17 @@ Under **Mixing & Mastering**, edit pricing Stripe links if needed, and add portf
 - Beat missing from the store → check **Hidden**, or that **id** is filled in.
 - Price wrong after flipping Sampled → wait for Netlify rebuild (~1–2 min); confirm both links are set.
 - Local rebuild: from this folder run `node build.mjs` and open `dist/`.
+
+
+## Audio hosting (off Netlify)
+
+Store MP3s are served from the free public repo **prodshammy/shammybeats-audio** via jsDelivr (`AUDIO_BASE` in `build.mjs`). Netlify does **not** publish `assets/audio/*.mp3`.
+
+### After you upload a new beat in /admin
+
+1. Save/publish the beat in Decap as usual (audio still lands in `assets/audio/` on GitHub via the CMS).
+2. Copy the new MP3 into **prodshammy/shammybeats-audio** as `audio/<beat-id>.mp3` (same id/slug as the beat) and push `main`.
+3. Wait ~1–2 minutes for jsDelivr to pick up the commit (or purge: `https://purge.jsdelivr.net/gh/prodshammy/shammybeats-audio@main/audio/<id>.mp3`).
+4. Confirm the live beat page `<audio>` src points at the CDN URL and playback/seek work.
+
+Keep local `assets/audio/` files in the main repo for backups and Decap uploads; they are just not deployed to Netlify.

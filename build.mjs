@@ -10,6 +10,8 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
 const DIST = path.join(ROOT, "dist");
+// Free hosting for store MP3s (jsDelivr → prodshammy/shammybeats-audio). Override with env AUDIO_BASE.
+const AUDIO_BASE = (process.env.AUDIO_BASE || "https://cdn.jsdelivr.net/gh/prodshammy/shammybeats-audio@main/audio").replace(/\/$/, "");
 
 function readJson(rel) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, rel), "utf8"));
@@ -31,13 +33,23 @@ function rmrf(p) {
   fs.rmSync(p, { recursive: true, force: true });
 }
 
-function copyDir(src, dest) {
+function copyDir(src, dest, opts = {}) {
   ensureDir(dest);
   for (const ent of fs.readdirSync(src, { withFileTypes: true })) {
     const s = path.join(src, ent.name);
     const d = path.join(dest, ent.name);
-    if (ent.isDirectory()) copyDir(s, d);
-    else fs.copyFileSync(s, d);
+    if (ent.isDirectory()) {
+      // Keep originals on disk; do not publish MP3s to Netlify (AUDIO_BASE hosts them).
+      if (opts.skipAudio && ent.name === "audio" && path.basename(src) === "assets") {
+        ensureDir(d);
+        continue;
+      }
+      copyDir(s, d, opts);
+    } else if (opts.skipAudio && /\.mp3$/i.test(ent.name)) {
+      continue;
+    } else {
+      fs.copyFileSync(s, d);
+    }
   }
 }
 
@@ -63,7 +75,8 @@ function normalizeBeat(raw) {
     price,
     exclusivePrice: price,
     cover: raw.cover || "",
-    audio: raw.audio || "",
+    audio: AUDIO_BASE && id ? `${AUDIO_BASE}/${id}.mp3` : (raw.audio || ""),
+    audioLocal: raw.audio || "",
     link100,
     link50,
     stripePaymentLink: activeLink || legacyLink,
@@ -76,6 +89,12 @@ function visibleBeats(store) {
   return (store.beats || [])
     .map(normalizeBeat)
     .filter((b) => b.id && b.title && !b.hidden);
+}
+
+function audioHref(beat, prefix = "") {
+  const a = beat.audio || "";
+  if (/^https?:\/\//i.test(a)) return a;
+  return `${prefix}${a}`;
 }
 
 function downloadName(beat) {
@@ -124,10 +143,10 @@ function renderBeatCard(beat) {
           <span>${esc(beat.bpm)} BPM</span>
           <span>${esc(beat.key)}</span>${moodMeta(beat)}${sampleBadge(beat)}
         </div>
-        <audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="none" src="${esc(beat.audio)}"></audio>
+        <audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="none" src="${esc(audioHref(beat))}"></audio>
         <div class="actions">
           <div class="btn-row">
-            <a class="btn btn-lease" href="${esc(beat.audio)}" download="${esc(downloadName(beat))}">Free Lease</a>
+            <a class="btn btn-lease" href="${esc(audioHref(beat))}" download="${esc(downloadName(beat))}">Free Lease</a>
             <a class="btn btn-buy" href="${esc(buyHref(beat))}">Buy Exclusive · $${esc(beat.price)}</a>
           </div>
           <div class="btn-row">
@@ -317,10 +336,10 @@ function renderBeatPage(store, beat) {
         <span>${esc(beat.key)}</span>${moodSpan}${sampleMeta}
         <span class="price-tag">Exclusive $${esc(beat.price)}</span>
       </div>
-      <audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="metadata" src="../../${esc(beat.audio)}"></audio>
+      <audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="metadata" src="${esc(audioHref(beat, "../../"))}"></audio>
       <div class="actions">
         <div class="btn-row">
-          <a class="btn btn-lease" href="../../${esc(beat.audio)}" download="${esc(downloadName(beat))}">Free Lease</a>
+          <a class="btn btn-lease" href="${esc(audioHref(beat, "../../"))}" download="${esc(downloadName(beat))}">Free Lease</a>
           <a class="btn btn-buy" href="${esc(buyHref(beat))}">Buy Exclusive · $${esc(beat.price)}</a>
         </div>
         <div class="btn-row">
@@ -476,7 +495,7 @@ function main() {
   ensureDir(DIST);
 
   // Static assets
-  copyDir(path.join(ROOT, "assets"), path.join(DIST, "assets"));
+  copyDir(path.join(ROOT, "assets"), path.join(DIST, "assets"), { skipAudio: true });
   // Data files (runtime portfolio + CMS source mirrors)
   fs.copyFileSync(path.join(ROOT, "mixing.json"), path.join(DIST, "mixing.json"));
   fs.copyFileSync(path.join(ROOT, "beats.json"), path.join(DIST, "beats.json"));
