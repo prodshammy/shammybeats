@@ -116,7 +116,7 @@ function renderBeatCard(beat) {
           <span>${esc(beat.bpm)} BPM</span>
           <span>${esc(beat.key)}</span>${moodMeta(beat)}${sampleBadge(beat)}
         </div>
-        <audio class="player" controls preload="none" src="${esc(beat.audio)}"></audio>
+        <audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="none" src="${esc(beat.audio)}"></audio>
         <div class="actions">
           <div class="btn-row">
             <a class="btn btn-lease" href="${esc(beat.audio)}" download="${esc(downloadName(beat))}">Free Lease</a>
@@ -309,7 +309,7 @@ function renderBeatPage(store, beat) {
         <span>${esc(beat.key)}</span>${moodSpan}${sampleMeta}
         <span class="price-tag">Exclusive $${esc(beat.price)}</span>
       </div>
-      <audio class="player" controls preload="metadata" src="../../${esc(beat.audio)}"></audio>
+      <audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="metadata" src="../../${esc(beat.audio)}"></audio>
       <div class="actions">
         <div class="btn-row">
           <a class="btn btn-lease" href="../../${esc(beat.audio)}" download="${esc(downloadName(beat))}">Free Lease</a>

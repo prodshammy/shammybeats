@@ -41,14 +41,14 @@
       if (entry.beforeAudio) {
         audioBlock +=
           '<label class="audio-label">Before</label>' +
-          '<audio class="player" controls preload="none" src="' +
+          '<audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="none" src="' +
           escapeHtml(resolveUrl(entry.beforeAudio, assetBase)) +
           '"></audio>';
       }
       if (entry.afterAudio) {
         audioBlock +=
           '<label class="audio-label">After</label>' +
-          '<audio class="player" controls preload="none" src="' +
+          '<audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="none" src="' +
           escapeHtml(resolveUrl(entry.afterAudio, assetBase)) +
           '"></audio>';
       }

@@ -1,0 +1,238 @@
+{
+  "description": "Never list these in bulk beat import batches. Match on beat id, title (case-insensitive), or source path/folder token.",
+  "ids": [
+    "abaddon",
+    "aceldama",
+    "agape",
+    "apocalypse",
+    "asp",
+    "belial",
+    "candlestick",
+    "dawn",
+    "dove",
+    "earthquake",
+    "edom",
+    "emmanuel",
+    "gilead",
+    "hallelujah",
+    "judgment",
+    "miriam",
+    "onesimus",
+    "paul",
+    "peace",
+    "promise",
+    "rebellion",
+    "salvation",
+    "scorpion",
+    "sharon",
+    "siege",
+    "solomon",
+    "tempest",
+    "tempter",
+    "vulture",
+    "wine",
+    "yahweh",
+    "zion"
+  ],
+  "title_substrings": [
+    "ABADDON",
+    "ACELDAMA",
+    "AGAPE",
+    "APOCALYPSE",
+    "ASP",
+    "BELIAL",
+    "CANDLESTICK",
+    "DAWN",
+    "DOVE",
+    "EARTHQUAKE",
+    "EDOM",
+    "EMMANUEL",
+    "GILEAD",
+    "HALLELUJAH",
+    "JUDGMENT",
+    "MIRIAM",
+    "ONESIMUS",
+    "PAUL",
+    "PEACE",
+    "PROMISE",
+    "REBELLION",
+    "SALVATION",
+    "SCORPION",
+    "SHARON",
+    "SIEGE",
+    "SOLOMON",
+    "TEMPEST",
+    "TEMPTER",
+    "VULTURE",
+    "WINE",
+    "YAHWEH",
+    "ZION",
+    "maine"
+  ],
+  "path_substrings": [
+    "maine",
+    "SOLOMON",
+    "solomon",
+    "earthquake",
+    "EARTHQUAKE"
+  ],
+  "notes": {
+    "maine": "Skip any beat whose path/folder/name contains 'maine' (placements).",
+    "solomon": "Removed from store previously; Stripe payment link deactivated.",
+    "earthquake": "Removed 2026-11-03 per Gray; keep assets/audio/earthquake.mp3 and cover; deactivate Stripe payment link(s).",
+    "under_60s": "Never list beats with ffprobe duration < 60s. Unlisted 2026-11-03."
+  },
+  "min_duration_seconds": 60,
+  "under_60s_removed": [
+    {
+      "id": "tempest",
+      "title": "TEMPEST",
+      "duration": 7.811
+    },
+    {
+      "id": "zion",
+      "title": "ZION",
+      "duration": 13.322
+    },
+    {
+      "id": "candlestick",
+      "title": "CANDLESTICK",
+      "duration": 13.453
+    },
+    {
+      "id": "aceldama",
+      "title": "ACELDAMA",
+      "duration": 15.412
+    },
+    {
+      "id": "abaddon",
+      "title": "ABADDON",
+      "duration": 17.189
+    },
+    {
+      "id": "asp",
+      "title": "ASP",
+      "duration": 17.711
+    },
+    {
+      "id": "siege",
+      "title": "SIEGE",
+      "duration": 20.349
+    },
+    {
+      "id": "salvation",
+      "title": "SALVATION",
+      "duration": 20.611
+    },
+    {
+      "id": "dawn",
+      "title": "DAWN",
+      "duration": 20.715
+    },
+    {
+      "id": "scorpion",
+      "title": "SCORPION",
+      "duration": 20.846
+    },
+    {
+      "id": "emmanuel",
+      "title": "EMMANUEL",
+      "duration": 25.783
+    },
+    {
+      "id": "sharon",
+      "title": "SHARON",
+      "duration": 26.723
+    },
+    {
+      "id": "paul",
+      "title": "PAUL",
+      "duration": 26.749
+    },
+    {
+      "id": "apocalypse",
+      "title": "APOCALYPSE",
+      "duration": 29.806
+    },
+    {
+      "id": "miriam",
+      "title": "MIRIAM",
+      "duration": 30.746
+    },
+    {
+      "id": "gilead",
+      "title": "GILEAD",
+      "duration": 31.425
+    },
+    {
+      "id": "rebellion",
+      "title": "REBELLION",
+      "duration": 31.817
+    },
+    {
+      "id": "agape",
+      "title": "AGAPE",
+      "duration": 32.679
+    },
+    {
+      "id": "peace",
+      "title": "PEACE",
+      "duration": 34.351
+    },
+    {
+      "id": "onesimus",
+      "title": "ONESIMUS",
+      "duration": 35.37
+    },
+    {
+      "id": "wine",
+      "title": "WINE",
+      "duration": 41.43
+    },
+    {
+      "id": "judgment",
+      "title": "JUDGMENT",
+      "duration": 41.953
+    },
+    {
+      "id": "yahweh",
+      "title": "YAHWEH",
+      "duration": 42.057
+    },
+    {
+      "id": "belial",
+      "title": "BELIAL",
+      "duration": 43.416
+    },
+    {
+      "id": "edom",
+      "title": "EDOM",
+      "duration": 46.054
+    },
+    {
+      "id": "promise",
+      "title": "PROMISE",
+      "duration": 46.393
+    },
+    {
+      "id": "tempter",
+      "title": "TEMPTER",
+      "duration": 46.42
+    },
+    {
+      "id": "vulture",
+      "title": "VULTURE",
+      "duration": 49.058
+    },
+    {
+      "id": "hallelujah",
+      "title": "HALLELUJAH",
+      "duration": 58.514
+    },
+    {
+      "id": "dove",
+      "title": "DOVE",
+      "duration": 58.802
+    }
+  ]
+}
