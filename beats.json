@@ -1791,21 +1791,6 @@
       "hidden": false
     },
     {
-      "id": "gallows",
-      "title": "GALLOWS",
-      "bpm": 155,
-      "key": "Emin",
-      "sampled": false,
-      "exclusivePrice": 100,
-      "cover": "assets/covers/gallows.jpg",
-      "audio": "assets/audio/gallows.mp3",
-      "stripePaymentLink": "https://buy.stripe.com/28E8wP4NQe5Z9NB2eFbwk2d",
-      "price": 100,
-      "mood": "",
-      "youtubeUrl": "",
-      "hidden": false
-    },
-    {
       "id": "gravecloth",
       "title": "GRAVECLOTH",
       "bpm": 156,

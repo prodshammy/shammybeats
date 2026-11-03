@@ -13,6 +13,7 @@
     "earthquake",
     "edom",
     "emmanuel",
+    "gallows",
     "gilead",
     "hallelujah",
     "judgment",
@@ -48,6 +49,7 @@
     "EARTHQUAKE",
     "EDOM",
     "EMMANUEL",
+    "GALLOWS",
     "GILEAD",
     "HALLELUJAH",
     "JUDGMENT",
@@ -73,9 +75,11 @@
   ],
   "path_substrings": [
     "EARTHQUAKE",
+    "GALLOWS",
     "MANNA",
     "SOLOMON",
     "earthquake",
+    "gallows",
     "maine",
     "manna",
     "solomon"
@@ -85,7 +89,8 @@
     "solomon": "Removed from store previously; Stripe payment link deactivated.",
     "earthquake": "Removed 2026-11-03 per Gray; keep assets/audio/earthquake.mp3 and cover; deactivate Stripe payment link(s).",
     "under_60s": "Never list beats with ffprobe duration < 60s. Unlisted 2026-11-03.",
-    "manna": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe payment link(s); never re-add in batches."
+    "manna": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe payment link(s); never re-add in batches.",
+    "gallows": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
   },
   "min_duration_seconds": 60,
   "under_60s_removed": [
