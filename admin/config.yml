@@ -1,0 +1,120 @@
+# Decap CMS — GitHub backend via Netlify OAuth
+# Browser setup: Netlify site shammybeats.netlify.app → Identity + Git Gateway
+# (or GitHub backend with Netlify OAuth provider). Repo: prodshammy/shammybeats, branch main.
+
+backend:
+  name: git-gateway
+  branch: main
+  # If using explicit GitHub backend instead of Git Gateway, switch to:
+  # name: github
+  # repo: prodshammy/shammybeats
+  # base_url: https://api.netlify.com
+  # auth_endpoint: auth
+  # site_domain: shammybeats.netlify.app
+
+local_backend: false
+
+media_folder: assets/uploads
+public_folder: assets/uploads
+
+site_url: https://shammybeats.netlify.app
+display_url: https://shammybeats.netlify.app
+logo_url:
+
+collections:
+  - name: beats_file
+    label: Beats
+    label_singular: Beat
+    description: "Catalog of beats. After saving, Netlify rebuilds the site. New exclusives need a Stripe Payment Link pasted below (create one in Stripe Dashboard → Payment Links)."
+    files:
+      - name: beats
+        label: Beat catalog (beats.json)
+        file: beats.json
+        fields:
+          - { label: Brand, name: brand, widget: string }
+          - label: Artist credit
+            name: artistCredit
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: url, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Site URL, name: siteUrl, widget: string, required: false }
+          - label: Licenses
+            name: licenses
+            widget: object
+            fields:
+              - label: Free lease
+                name: freeLease
+                widget: object
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Price, name: price, widget: number, value_type: int }
+                  - { label: Summary, name: summary, widget: text }
+              - label: Exclusive
+                name: exclusive
+                widget: object
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Default price, name: priceDefault, widget: number, value_type: int }
+                  - { label: Sampled price, name: priceSampled, widget: number, value_type: int }
+                  - { label: Summary, name: summary, widget: text }
+          - label: Beats
+            name: beats
+            widget: list
+            summary: "{{title}} · {{bpm}} {{key}} · ${{price}}"
+            fields:
+              - { label: Name, name: title, widget: string, hint: "Display name, e.g. EPSILON" }
+              - { label: ID / slug, name: id, widget: string, hint: "URL slug, lowercase, hyphens OK (e.g. party-halo). Becomes /beats/<id>/" }
+              - { label: BPM, name: bpm, widget: number, value_type: int }
+              - { label: Key, name: key, widget: string, hint: "e.g. Cmin, A#min" }
+              - { label: Mood, name: mood, widget: string, required: false, hint: "Optional short mood tag shown on the card" }
+              - { label: Sampled, name: sampled, widget: boolean, default: false }
+              - { label: Audio (MP3), name: audio, widget: file, media_folder: assets/audio, public_folder: assets/audio, hint: "Upload the lease/preview MP3" }
+              - { label: Cover art, name: cover, widget: image, media_folder: assets/covers, public_folder: assets/covers }
+              - { label: Exclusive price (USD), name: price, widget: number, value_type: int, hint: "Usually 100, or 50 if sampled" }
+              - { label: Exclusive price (legacy), name: exclusivePrice, widget: number, value_type: int, required: false, hint: "Optional mirror of price for older builds — keep equal to price" }
+              - label: Stripe payment link
+                name: stripePaymentLink
+                widget: string
+                hint: "REQUIRED for Buy Exclusive. Create a Payment Link in Stripe for this beat's exclusive price, then paste the buy.stripe.com URL here. The site will not invent one."
+              - { label: YouTube URL, name: youtubeUrl, widget: string, required: false, hint: "Optional type-beat video link" }
+              - { label: Hidden, name: hidden, widget: boolean, default: false, hint: "If on, the beat is omitted from the public site" }
+
+  - name: mixing_file
+    label: Mixing & Mastering
+    description: "Pricing and portfolio for the Mixing section."
+    files:
+      - name: mixing
+        label: Mixing config (mixing.json)
+        file: mixing.json
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Contact email, name: contactEmail, widget: string }
+          - { label: Agreement note, name: agreementNote, widget: string }
+          - { label: Agreement path placeholder, name: agreementPathPlaceholder, widget: string, required: false }
+          - label: Pricing
+            name: pricing
+            widget: list
+            summary: "{{name}} · ${{price}}"
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Price (USD), name: price, widget: number, value_type: int }
+              - { label: Summary, name: summary, widget: text }
+              - label: Stripe payment link
+                name: stripePaymentLink
+                widget: string
+                hint: "Paste the Stripe Payment Link URL for this service tier."
+          - label: Portfolio
+            name: portfolio
+            widget: list
+            summary: "{{title}} — {{artist}}"
+            required: false
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Artist, name: artist, widget: string, required: false }
+              - { label: Cover, name: cover, widget: image, required: false, media_folder: assets/uploads, public_folder: assets/uploads }
+              - { label: Before audio, name: beforeAudio, widget: file, required: false, media_folder: assets/uploads, public_folder: assets/uploads }
+              - { label: After audio, name: afterAudio, widget: file, required: false, media_folder: assets/uploads, public_folder: assets/uploads }

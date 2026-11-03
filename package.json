@@ -1,0 +1,14 @@
+{
+  "name": "shammybeats",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Prod. Shammy beat store — static site generated from beats.json",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev:build": "node build.mjs && echo Open dist/index.html via a local static server"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

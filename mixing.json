@@ -1,0 +1,31 @@
+{
+  "title": "Mixing & Mastering",
+  "tagline": "Human ears. Dark polish. Send stems, get a finished cut.",
+  "contactEmail": "shammypeters199@gmail.com",
+  "agreementNote": "Service agreement provided before work begins.",
+  "agreementPathPlaceholder": "/mixing/terms",
+  "pricing": [
+    {
+      "id": "mix",
+      "name": "Mix",
+      "price": 60,
+      "summary": "Full mix — balance, EQ, dynamics, space.",
+      "stripePaymentLink": "https://buy.stripe.com/7sY3cv1BE0f9bVJ5qRbwk0a"
+    },
+    {
+      "id": "master",
+      "name": "Master",
+      "price": 60,
+      "summary": "Final master — loudness, glue, translation.",
+      "stripePaymentLink": "https://buy.stripe.com/7sYcN51BE7HB7Ft3iJbwk0b"
+    },
+    {
+      "id": "mix-master",
+      "name": "Mix + Master",
+      "price": 110,
+      "summary": "Mix and master as one package.",
+      "stripePaymentLink": "https://buy.stripe.com/dRm8wPfsu3rl4th5qRbwk0c"
+    }
+  ],
+  "portfolio": []
+}

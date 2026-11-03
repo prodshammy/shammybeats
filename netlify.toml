@@ -1,0 +1,15 @@
+[build]
+  command = "node build.mjs"
+  publish = "dist"
+
+# SPA-ish admin + pretty beat URLs work as static folders with index.html
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301
