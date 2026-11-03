@@ -1,0 +1,159 @@
+{
+  "brand": "PROD. SHAMMY",
+  "artistCredit": {
+    "label": "Art: @Nobleheart",
+    "url": "https://x.com/Nobleheart"
+  },
+  "tagline": "Beats + art: human made",
+  "siteUrl": "",
+  "licenses": {
+    "freeLease": {
+      "name": "Free Lease (Non-Exclusive)",
+      "price": 0,
+      "summary": "Free non-exclusive lease, unlimited use, credit Prod. Shammy. You may use the beat in released music, content, and performances. Credit required: Prod. Shammy. Rights are non-exclusive \u2014 the producer retains ownership and may license to others."
+    },
+    "exclusive": {
+      "name": "Exclusive Rights",
+      "priceDefault": 100,
+      "priceSampled": 50,
+      "summary": "Full exclusive rights transfer for the instrumental. After purchase, the beat is removed from free lease availability for new licensees. Sampled beats note: Contains a sample. Artist must clear the sample before commercial release."
+    }
+  },
+  "beats": [
+    {
+      "id": "epsilon",
+      "title": "EPSILON",
+      "bpm": 140,
+      "key": "Cmin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/epsilon.jpg",
+      "audio": "assets/audio/epsilon.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/5kQ00j3JMd1VcZNbPfbwk00",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "flood",
+      "title": "FLOOD",
+      "bpm": 75,
+      "key": "Amin",
+      "sampled": true,
+      "exclusivePrice": 50,
+      "cover": "assets/covers/flood.jpg",
+      "audio": "assets/audio/flood.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/4gM4gzbce0f9e3R5qRbwk07",
+      "price": 50,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "party-halo",
+      "title": "PARTY HALO",
+      "bpm": 146,
+      "key": "Cmin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/party-halo.jpg",
+      "audio": "assets/audio/party-halo.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/dRm4gzcgiaTNcZNaLbbwk01",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "amalek",
+      "title": "AMALEK",
+      "bpm": 98,
+      "key": "Dmin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/amalek.jpg",
+      "audio": "assets/audio/amalek.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/7sY28rfsufa38JxbPfbwk02",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "starringer",
+      "title": "STARRINGER",
+      "bpm": 144,
+      "key": "Fmin",
+      "sampled": true,
+      "exclusivePrice": 50,
+      "cover": "assets/covers/starringer.jpg",
+      "audio": "assets/audio/starringer.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/00wfZhgwy4vpcZN2eFbwk09",
+      "price": 50,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "leviathan",
+      "title": "LEVIATHAN",
+      "bpm": 145,
+      "key": "Bmin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/leviathan.jpg",
+      "audio": "assets/audio/leviathan.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/fZu8wPdkm8LF3pd8D3bwk03",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "nathan",
+      "title": "NATHAN",
+      "bpm": 156,
+      "key": "Dmin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/nathan.jpg",
+      "audio": "assets/audio/nathan.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/aFa4gz1BE6DxcZN7yZbwk04",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "seraph",
+      "title": "SERAPH",
+      "bpm": 145,
+      "key": "A#min",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/seraph.jpg",
+      "audio": "assets/audio/seraph.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/8x2bJ1dkm9PJ3pd6uVbwk05",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    },
+    {
+      "id": "sorrow",
+      "title": "SORROW",
+      "bpm": 144,
+      "key": "C#min",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/sorrow.jpg",
+      "audio": "assets/audio/sorrow.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/3cI7sLfsu6Dx3pdg5vbwk06",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
+    }
+  ]
+}
