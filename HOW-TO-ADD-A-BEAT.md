@@ -9,19 +9,33 @@ You edit the site at **https://shammybeats.netlify.app/admin/** (after Netlify +
 3. In Netlify, enable the **GitHub** OAuth provider for Decap/CMS (Netlify OAuth proxy: `base_url` `https://api.netlify.com`, site domain `shammybeats.netlify.app`). Open `/admin/` and log in with GitHub.
 4. Alternate: Netlify **Identity** + **Git Gateway** (then switch `admin/config.yml` backend to `git-gateway`).
 
+## Flip Sampled (price + Stripe link)
+
+Gray / editors: the **Sampled** toggle fully drives pricing on the live site.
+
+1. Open **https://shammybeats.netlify.app/admin/**
+2. **Beats** → **Beat catalog** → pick the beat
+3. Flip **Sampled** on or off
+4. Confirm both **Stripe link $100** (`link100`) and **Stripe link $50** (`link50`) are filled
+5. **Publish / Save** — Netlify rebuilds in about **1–2 minutes**
+
+After rebuild:
+
+- **Sampled ON** → **$50**, note *Contains a sample. Artist must clear the sample.*, buy button uses **link50**
+- **Sampled OFF** → **$100**, buy button uses **link100**
+
 ## Add a new beat
 
-1. Create a **Stripe Payment Link** for the exclusive price ($100, or $50 if sampled). Copy the `buy.stripe.com` URL. The editor will **not** create Stripe links for you.
+1. In Stripe, create **one product** for the beat with **two prices** ($100 and $50), then a **Payment Link** for each. Copy both `buy.stripe.com` URLs.
 2. Open **/admin/** → **Beats** → **Beat catalog**.
 3. Add a list item under **Beats**:
    - **Name** — e.g. `HALO`
    - **ID / slug** — lowercase URL id, e.g. `halo` (page becomes `/beats/halo/`)
    - **BPM**, **Key**, optional **Mood**
-   - **Sampled** — on if it contains a sample (price is usually $50)
+   - **Sampled** — on if it contains a sample ($50); off for $100
    - **Audio** — upload the MP3
    - **Cover** — upload cover art
-   - **Exclusive price** — number only (100 or 50)
-   - **Stripe payment link** — paste the full URL from step 1
+   - **Stripe link $100** and **Stripe link $50** — paste both URLs
    - **YouTube URL** — optional
    - **Hidden** — leave off so it shows on the site
 4. Hit **Publish / Save**. Netlify rebuilds; wait a minute and refresh the live site.
@@ -32,6 +46,7 @@ Under **Mixing & Mastering**, edit pricing Stripe links if needed, and add portf
 
 ## If something looks wrong
 
-- Empty Buy button → missing Stripe payment link on that beat.
+- Empty Buy button → missing `link100` / `link50` (or legacy `stripePaymentLink`) for the current Sampled state.
 - Beat missing from the store → check **Hidden**, or that **id** is filled in.
+- Price wrong after flipping Sampled → wait for Netlify rebuild (~1–2 min); confirm both links are set.
 - Local rebuild: from this folder run `node build.mjs` and open `dist/`.

@@ -75,15 +75,28 @@ collections:
               - { label: BPM, name: bpm, widget: number, value_type: int }
               - { label: Key, name: key, widget: string, hint: "e.g. Cmin, A#min" }
               - { label: Mood, name: mood, widget: string, required: false, hint: "Optional short mood tag shown on the card" }
-              - { label: Sampled, name: sampled, widget: boolean, default: false }
+              - label: Sampled
+                name: sampled
+                widget: boolean
+                default: false
+                hint: "ON = $50 + sample-clear note + link50. OFF = $100 + link100. The build ignores the price number fields when both links exist."
               - { label: Audio (MP3), name: audio, widget: file, media_folder: assets/audio, public_folder: assets/audio, hint: "Upload the lease/preview MP3" }
               - { label: Cover art, name: cover, widget: image, media_folder: assets/covers, public_folder: assets/covers }
-              - { label: Exclusive price (USD), name: price, widget: number, value_type: int, hint: "Usually 100, or 50 if sampled" }
-              - { label: Exclusive price (legacy), name: exclusivePrice, widget: number, value_type: int, required: false, hint: "Optional mirror of price for older builds — keep equal to price" }
-              - label: Stripe payment link
+              - { label: Exclusive price (USD, legacy), name: price, widget: number, value_type: int, required: false, hint: "Legacy — build now sets price from Sampled (50 or 100). Keep in sync if you like." }
+              - { label: Exclusive price (legacy mirror), name: exclusivePrice, widget: number, value_type: int, required: false, hint: "Optional mirror of price for older builds" }
+              - label: Stripe link $100
+                name: link100
+                widget: string
+                hint: "buy.stripe.com Payment Link for the $100 exclusive. Used when Sampled is OFF."
+              - label: Stripe link $50
+                name: link50
+                widget: string
+                hint: "buy.stripe.com Payment Link for the $50 exclusive. Used when Sampled is ON."
+              - label: Stripe payment link (legacy)
                 name: stripePaymentLink
                 widget: string
-                hint: "REQUIRED for Buy Exclusive. Create a Payment Link in Stripe for this beat's exclusive price, then paste the buy.stripe.com URL here. The site will not invent one."
+                required: false
+                hint: "Legacy single link. Kept for older entries; build prefers link100/link50 based on Sampled."
               - { label: YouTube URL, name: youtubeUrl, widget: string, required: false, hint: "Optional type-beat video link" }
               - { label: Hidden, name: hidden, widget: boolean, default: false, hint: "If on, the beat is omitted from the public site" }
 

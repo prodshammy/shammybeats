@@ -44,21 +44,29 @@ function copyDir(src, dest) {
 function normalizeBeat(raw) {
   const id = String(raw.id || "").trim();
   const title = String(raw.title || raw.name || "").trim();
-  const price = Number(
-    raw.price != null ? raw.price : raw.exclusivePrice != null ? raw.exclusivePrice : 100
-  );
+  const sampled = !!raw.sampled;
+  const link100 = String(raw.link100 || raw.stripePaymentLink100 || "").trim();
+  const link50 = String(raw.link50 || raw.stripePaymentLink50 || "").trim();
+  const legacyLink = String(raw.stripePaymentLink || "").trim();
+  // Sampled toggle fully drives price + buy link; fall back to legacy stripePaymentLink.
+  const activeLink = sampled
+    ? (link50 || legacyLink)
+    : (link100 || legacyLink);
+  const price = sampled ? 50 : 100;
   return {
     id,
     title,
     bpm: raw.bpm ?? "",
     key: raw.key ?? "",
     mood: raw.mood ? String(raw.mood) : "",
-    sampled: !!raw.sampled,
+    sampled,
     price,
     exclusivePrice: price,
     cover: raw.cover || "",
     audio: raw.audio || "",
-    stripePaymentLink: raw.stripePaymentLink || "",
+    link100,
+    link50,
+    stripePaymentLink: activeLink || legacyLink,
     youtubeUrl: raw.youtubeUrl || "",
     hidden: !!raw.hidden,
   };
@@ -440,6 +448,8 @@ function writeConfigJs(store, beats) {
       mood: b.mood || undefined,
       sampled: b.sampled,
       exclusivePrice: b.price,
+      link100: b.link100,
+      link50: b.link50,
       price: b.price,
       cover: b.cover,
       audio: b.audio,
