@@ -6,8 +6,8 @@ You edit the site at **https://shammybeats.netlify.app/admin/** (after Netlify +
 
 1. Push this repo to **github.com/prodshammy/shammybeats** (branch `main`).
 2. Connect the repo to Netlify (site domain **shammybeats.netlify.app**). Build command is already in `netlify.toml`: `node build.mjs`, publish folder `dist`.
-3. In Netlify: turn on **Identity**, enable **Git Gateway**, and invite yourself. Open `/admin/` and log in with that invite.
-4. (Optional) Netlify Identity → External providers can use GitHub. OAuth goes through Netlify (`https://api.netlify.com`).
+3. In Netlify, enable the **GitHub** OAuth provider for Decap/CMS (Netlify OAuth proxy: `base_url` `https://api.netlify.com`, site domain `shammybeats.netlify.app`). Open `/admin/` and log in with GitHub.
+4. Alternate: Netlify **Identity** + **Git Gateway** (then switch `admin/config.yml` backend to `git-gateway`).
 
 ## Add a new beat
 

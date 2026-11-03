@@ -1,16 +1,23 @@
 # Decap CMS — GitHub backend via Netlify OAuth
-# Browser setup: Netlify site shammybeats.netlify.app → Identity + Git Gateway
-# (or GitHub backend with Netlify OAuth provider). Repo: prodshammy/shammybeats, branch main.
+# Browser setup required:
+# 1) Create/push repo prodshammy/shammybeats (branch main)
+# 2) Netlify site shammybeats.netlify.app linked to that repo
+# 3) Netlify → Site configuration → Access control → OAuth / Decap:
+#    enable GitHub as login provider for the CMS (Netlify OAuth proxy)
+# base_url defaults to https://api.netlify.com ; site_domain below matches the Netlify site.
 
 backend:
-  name: git-gateway
+  name: github
+  repo: prodshammy/shammybeats
   branch: main
-  # If using explicit GitHub backend instead of Git Gateway, switch to:
-  # name: github
-  # repo: prodshammy/shammybeats
-  # base_url: https://api.netlify.com
-  # auth_endpoint: auth
-  # site_domain: shammybeats.netlify.app
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  site_domain: shammybeats.netlify.app
+
+# Alternate (optional): Netlify Identity + Git Gateway instead of GitHub OAuth —
+# backend:
+#   name: git-gateway
+#   branch: main
 
 local_backend: false
 
@@ -19,7 +26,6 @@ public_folder: assets/uploads
 
 site_url: https://shammybeats.netlify.app
 display_url: https://shammybeats.netlify.app
-logo_url:
 
 collections:
   - name: beats_file
