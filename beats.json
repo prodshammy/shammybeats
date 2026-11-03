@@ -1639,6 +1639,21 @@
       "mood": "",
       "youtubeUrl": "",
       "hidden": false
+    },
+    {
+      "id": "ezra",
+      "title": "EZRA",
+      "bpm": 155,
+      "key": "Emin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/ezra.jpg",
+      "audio": "assets/audio/ezra.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/3cI7sLbce1jd3pdg5vbwk1P",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false
     }
   ]
 }
