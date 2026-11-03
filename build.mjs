@@ -10,8 +10,8 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
 const DIST = path.join(ROOT, "dist");
-// Free hosting for store MP3s (jsDelivr → prodshammy/shammybeats-audio). Override with env AUDIO_BASE.
-const AUDIO_BASE = (process.env.AUDIO_BASE || "https://cdn.jsdelivr.net/gh/prodshammy/shammybeats-audio@main/audio").replace(/\/$/, "");
+// Free hosting for store MP3s (GitHub raw → prodshammy/shammybeats-audio (jsDelivr 50MB package limit)). Override with env AUDIO_BASE.
+const AUDIO_BASE = (process.env.AUDIO_BASE || "https://raw.githubusercontent.com/prodshammy/shammybeats-audio/main/audio").replace(/\/$/, "");
 
 function readJson(rel) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, rel), "utf8"));
