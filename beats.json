@@ -10,7 +10,7 @@
     "freeLease": {
       "name": "Free Lease (Non-Exclusive)",
       "price": 0,
-      "summary": "Free non-exclusive lease, unlimited use, credit Prod. Shammy. You may use the beat in released music, content, and performances. Credit required: Prod. Shammy. Rights are non-exclusive \u2014 the producer retains ownership and may license to others."
+      "summary": "Free non-exclusive lease, unlimited use, credit Prod. Shammy. You may use the beat in released music, content, and performances. Credit required: Prod. Shammy. Rights are non-exclusive — the producer retains ownership and may license to others."
     },
     "exclusive": {
       "name": "Exclusive Rights",
@@ -138,23 +138,6 @@
       "hidden": false,
       "link100": "https://buy.stripe.com/aFa4gz1BE6DxcZN7yZbwk04",
       "link50": "https://buy.stripe.com/aFa6oHgwy2nh8Jx4mNbwl0F"
-    },
-    {
-      "id": "seraph",
-      "title": "SERAPH",
-      "bpm": 145,
-      "key": "A#min",
-      "sampled": false,
-      "exclusivePrice": 100,
-      "cover": "assets/covers/seraph.jpg",
-      "audio": "assets/audio/seraph.mp3",
-      "stripePaymentLink": "https://buy.stripe.com/8x2bJ1dkm9PJ3pd6uVbwk05",
-      "price": 100,
-      "mood": "",
-      "youtubeUrl": "",
-      "hidden": false,
-      "link100": "https://buy.stripe.com/8x2bJ1dkm9PJ3pd6uVbwk05",
-      "link50": "https://buy.stripe.com/7sY7sL6VY0f9aRF4mNbwl0I"
     },
     {
       "id": "sorrow",
