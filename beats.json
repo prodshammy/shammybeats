@@ -21,6 +21,23 @@
   },
   "beats": [
     {
+      "id": "selah",
+      "title": "SELAH",
+      "bpm": 142,
+      "key": "Fmin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/selah.jpg",
+      "audio": "assets/audio/selah.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/8x2aEXbce1jdf7VaLbbwl3t",
+      "price": 100,
+      "mood": "upbeat",
+      "youtubeUrl": "",
+      "hidden": false,
+      "link100": "https://buy.stripe.com/8x2aEXbce1jdf7VaLbbwl3t",
+      "link50": ""
+    },
+    {
       "id": "epsilon",
       "title": "EPSILON",
       "bpm": 140,
