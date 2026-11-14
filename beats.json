@@ -21,6 +21,23 @@
   },
   "beats": [
     {
+      "id": "ezekiel",
+      "title": "EZEKIEL",
+      "bpm": 150,
+      "key": "Emin",
+      "sampled": false,
+      "exclusivePrice": 100,
+      "cover": "assets/covers/ezekiel.jpg",
+      "audio": "assets/audio/ezekiel.mp3",
+      "stripePaymentLink": "https://buy.stripe.com/28E14nfsubXR5xl9H7bwl3u",
+      "price": 100,
+      "mood": "",
+      "youtubeUrl": "",
+      "hidden": false,
+      "link100": "https://buy.stripe.com/28E14nfsubXR5xl9H7bwl3u",
+      "link50": ""
+    },
+    {
       "id": "selah",
       "title": "SELAH",
       "bpm": 142,
