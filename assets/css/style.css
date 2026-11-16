@@ -390,6 +390,29 @@ a:hover { color: var(--crimson-glow); text-decoration: underline; }
   letter-spacing: 0.05em;
 }
 
+.exclusive-hold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid rgba(232, 184, 90, 0.45);
+  color: #e8b85a;
+  background: rgba(232, 184, 90, 0.08);
+  text-align: center;
+  cursor: default;
+}
+
+.exclusive-hold-tag {
+  color: #e8b85a;
+}
+
 /* Licenses */
 .licenses {
   margin: 1rem 0 3rem;

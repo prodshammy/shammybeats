@@ -34,6 +34,7 @@
       "mood": "",
       "youtubeUrl": "",
       "hidden": false,
+      "exclusiveHold": true,
       "link100": "https://buy.stripe.com/28E14nfsubXR5xl9H7bwl3u",
       "link50": ""
     },
@@ -3264,6 +3265,7 @@
       "mood": "",
       "youtubeUrl": "",
       "hidden": false,
+      "exclusiveHold": true,
       "link100": "https://buy.stripe.com/28E4gzfsubXRcZNbPfbwk3G",
       "link50": "https://buy.stripe.com/28E6oH8023rlgbZ3iJbwl34"
     },

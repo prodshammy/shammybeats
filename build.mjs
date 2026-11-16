@@ -82,6 +82,7 @@ function normalizeBeat(raw) {
     stripePaymentLink: activeLink || legacyLink,
     youtubeUrl: raw.youtubeUrl || "",
     hidden: !!raw.hidden,
+    exclusiveHold: !!raw.exclusiveHold,
   };
 }
 
@@ -102,7 +103,15 @@ function downloadName(beat) {
 }
 
 function buyHref(beat) {
+  if (beat.exclusiveHold) return "";
   return beat.stripePaymentLink || "#";
+}
+
+function exclusiveBuyControl(beat) {
+  if (beat.exclusiveHold) {
+    return `<span class="exclusive-hold" role="status">Exclusive on hold</span>`;
+  }
+  return `<a class="btn btn-buy" href="${esc(buyHref(beat))}">Buy Exclusive · $${esc(beat.price)}</a>`;
 }
 
 function sampleBadge(beat) {
@@ -147,7 +156,7 @@ function renderBeatCard(beat) {
         <div class="actions">
           <div class="btn-row">
             <a class="btn btn-lease" href="${esc(audioHref(beat))}" download="${esc(downloadName(beat))}">Free Lease</a>
-            <a class="btn btn-buy" href="${esc(buyHref(beat))}">Buy Exclusive · $${esc(beat.price)}</a>
+            ${exclusiveBuyControl(beat)}
           </div>
           <div class="btn-row">
             <button type="button" class="btn btn-copy" data-copy-link="${href}" title="Copy shareable link">Copy link</button>
@@ -291,7 +300,12 @@ function renderBeatPage(store, beat) {
   const credit = store.artistCredit || { label: "Art: @Nobleheart", url: "https://x.com/Nobleheart" };
   const free = store.licenses?.freeLease;
   const ex = store.licenses?.exclusive;
-  const desc = `${beat.title} — ${beat.bpm} BPM ${beat.key} · Prod. Shammy. Free lease or buy exclusive ($${beat.price}).`;
+  const desc = beat.exclusiveHold
+    ? `${beat.title} — ${beat.bpm} BPM ${beat.key} · Prod. Shammy. Free lease available. Exclusive on hold.`
+    : `${beat.title} — ${beat.bpm} BPM ${beat.key} · Prod. Shammy. Free lease or buy exclusive ($${beat.price}).`;
+  const priceTag = beat.exclusiveHold
+    ? `<span class="price-tag exclusive-hold-tag">Exclusive on hold</span>`
+    : `<span class="price-tag">Exclusive $${esc(beat.price)}</span>`;
   const sampleMeta = beat.sampled
     ? `\n        <span class="badge badge-sample">Sampled</span>`
     : "";
@@ -334,13 +348,13 @@ function renderBeatPage(store, beat) {
       <div class="beat-meta">
         <span>${esc(beat.bpm)} BPM</span>
         <span>${esc(beat.key)}</span>${moodSpan}${sampleMeta}
-        <span class="price-tag">Exclusive $${esc(beat.price)}</span>
+        ${priceTag}
       </div>
       <audio class="player" controls controlsList="nodownload noplaybackrate" oncontextmenu="return false" preload="metadata" src="${esc(audioHref(beat, "../../"))}"></audio>
       <div class="actions">
         <div class="btn-row">
           <a class="btn btn-lease" href="${esc(audioHref(beat, "../../"))}" download="${esc(downloadName(beat))}">Free Lease</a>
-          <a class="btn btn-buy" href="${esc(buyHref(beat))}">Buy Exclusive · $${esc(beat.price)}</a>
+          ${exclusiveBuyControl(beat)}
         </div>
         <div class="btn-row">
           <button type="button" class="btn btn-copy" data-copy-link="./" title="Copy shareable link">Copy link</button>
@@ -467,14 +481,15 @@ function writeConfigJs(store, beats) {
       mood: b.mood || undefined,
       sampled: b.sampled,
       exclusivePrice: b.price,
-      link100: b.link100,
-      link50: b.link50,
+      link100: b.exclusiveHold ? undefined : b.link100,
+      link50: b.exclusiveHold ? undefined : b.link50,
       price: b.price,
       cover: b.cover,
       audio: b.audio,
-      stripePaymentLink: b.stripePaymentLink,
+      stripePaymentLink: b.exclusiveHold ? undefined : b.stripePaymentLink,
       youtubeUrl: b.youtubeUrl || undefined,
       hidden: b.hidden || undefined,
+      exclusiveHold: b.exclusiveHold || undefined,
     })),
   };
   // strip undefined
@@ -484,6 +499,19 @@ function writeConfigJs(store, beats) {
     return c;
   });
   return `window.BEAT_STORE = ${JSON.stringify(out, null, 2)};\n`;
+}
+
+function publicBeatsJson(store) {
+  const out = JSON.parse(JSON.stringify(store));
+  for (const b of out.beats || []) {
+    if (b.exclusiveHold) {
+      // Keep exclusiveHold in the public copy, but do not publish Stripe URLs.
+      delete b.stripePaymentLink;
+      delete b.link100;
+      delete b.link50;
+    }
+  }
+  return JSON.stringify(out, null, 2) + "\n";
 }
 
 function main() {
@@ -498,7 +526,7 @@ function main() {
   copyDir(path.join(ROOT, "assets"), path.join(DIST, "assets"), { skipAudio: true });
   // Data files (runtime portfolio + CMS source mirrors)
   fs.copyFileSync(path.join(ROOT, "mixing.json"), path.join(DIST, "mixing.json"));
-  fs.copyFileSync(path.join(ROOT, "beats.json"), path.join(DIST, "beats.json"));
+  fs.writeFileSync(path.join(DIST, "beats.json"), publicBeatsJson(store));
   fs.copyFileSync(path.join(ROOT, "mixing.json"), path.join(DIST, "assets/js/mixing.json"));
 
   // Admin (Decap)

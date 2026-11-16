@@ -99,6 +99,7 @@ collections:
                 hint: "Legacy single link. Kept for older entries; build prefers link100/link50 based on Sampled."
               - { label: YouTube URL, name: youtubeUrl, widget: string, required: false, hint: "Optional type-beat video link" }
               - { label: Hidden, name: hidden, widget: boolean, default: false, hint: "If on, the beat is omitted from the public site" }
+              - { label: Exclusive on hold, name: exclusiveHold, widget: boolean, default: false, hint: "If on, the public site shows an Exclusive on hold label instead of the $100 buy button, and Stripe links are omitted from generated pages. Free lease stays available. Turn off to restore the buy button; also reactivate the Stripe payment link." }
 
   - name: mixing_file
     label: Mixing & Mastering
