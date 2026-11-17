@@ -12,6 +12,7 @@
     "dove",
     "earthquake",
     "edom",
+    "elshaddai",
     "emmanuel",
     "gallows",
     "gilead",
@@ -51,6 +52,8 @@
     "DOVE",
     "EARTHQUAKE",
     "EDOM",
+    "EL SHADDAI",
+    "ELSHADDAI",
     "EMMANUEL",
     "GALLOWS",
     "GILEAD",
@@ -81,6 +84,7 @@
   ],
   "path_substrings": [
     "EARTHQUAKE",
+    "ELSHADDAI",
     "GALLOWS",
     "JOHN",
     "MANNA",
@@ -88,6 +92,7 @@
     "RACHEL",
     "SOLOMON",
     "earthquake",
+    "elshaddai",
     "gallows",
     "john",
     "maine",
@@ -105,7 +110,8 @@
     "gallows": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
     "passover": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
     "rachel": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
-    "john": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches."
+    "john": "Removed 2026-11-03 per Gray; keep assets; deactivate Stripe; never re-add in batches.",
+    "elshaddai": "Removed 2026-11-16 per Shammy (\"take down elshaddai\"); keep assets/audio and cover; Stripe payment links left active; never re-add in batches."
   },
   "min_duration_seconds": 60,
   "under_60s_removed": [

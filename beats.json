@@ -3593,23 +3593,6 @@
       "link50": "https://buy.stripe.com/bJe28rgwy0f9bVJ4mNbwl3n"
     },
     {
-      "id": "elshaddai",
-      "title": "ELSHADDAI",
-      "bpm": 144,
-      "key": "C#maj",
-      "sampled": false,
-      "exclusivePrice": 100,
-      "cover": "assets/covers/elshaddai.jpg",
-      "audio": "assets/audio/elshaddai.mp3",
-      "stripePaymentLink": "https://buy.stripe.com/7sY28r3JMe5Z0d1f1rbwk43",
-      "price": 100,
-      "mood": "",
-      "youtubeUrl": "",
-      "hidden": false,
-      "link100": "https://buy.stripe.com/7sY28r3JMe5Z0d1f1rbwk43",
-      "link50": "https://buy.stripe.com/28E00j6VYaTNbVJaLbbwl3o"
-    },
-    {
       "id": "enoch",
       "title": "ENOCH",
       "bpm": 146,
